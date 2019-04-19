@@ -1,0 +1,7 @@
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentityBinding
+metadata:
+  name: aad-pod-identity-binding2
+spec:
+  AzureIdentity: attk8demouser2
+  Selector: aad-demo-app2

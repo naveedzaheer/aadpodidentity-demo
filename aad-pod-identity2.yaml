@@ -1,0 +1,8 @@
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentity
+metadata:
+  name: attk8demouser2
+spec:
+  type: 0
+  ResourceID: /subscriptions/03228871-7f68-4594-b208-2d8207a65428/resourcegroups/attk8demo-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/attk8demouser2
+  ClientID: d1087cea-cc77-4fbb-aa58-1f6df343f53c

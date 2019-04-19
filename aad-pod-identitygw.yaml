@@ -1,0 +1,8 @@
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentity
+metadata:
+  name: appgwcontridentityf009
+spec:
+  type: 0
+  ResourceID: /subscriptions/03228871-7f68-4594-b208-2d8207a65428/resourcegroups/attk8demo-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/appgwcontridentityf009
+  ClientID: 6b265de3-000c-4617-be65-d4f4a5f83094

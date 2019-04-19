@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: aks-kv-sample-pod
+  labels:
+    app: aks-kv-demo
+    aadpodidbinding: "aad-demo-app1"
+spec:
+  containers:
+    - name: aks-kv-container 
+      image: thorstenhans/aks-keyvault-sample:latest 
+      imagePullPolicy: Always 
+      volumeMounts:
+        - name: kvvol 
+          mountPath: /kv 
+          readOnly: true 
+  volumes:
+    - name: kvvol 
+      flexVolume: 
+        driver: "azure/kv" 
+        options: 
+          usepodidentity: "true" 
+          keyvaultname: "attk8demo1-kv" 
+          keyvaultobjectnames: "Secret1;Secret2" 
+          keyvaultobjecttypes: "secret;secret" 
+          resourcegroup: "attk8demo-rg" 
+          subscriptionid: "03228871-7f68-4594-b208-2d8207a65428" 
+          tenantid: "f0e35cf1-b7b9-452d-bcf8-76d522dc0c1d"
+
+
+
+
+
+

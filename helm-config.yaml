@@ -1,0 +1,36 @@
+# This file contains the essential configs for the ingress controller helm chart
+
+################################################################################
+# Specify which application gateway the ingress controller will manage
+#
+appgw:
+    subscriptionId: 03228871-7f68-4594-b208-2d8207a65428
+    resourceGroup: attk8demo-rg
+    name: applicationgatewayf009
+
+################################################################################
+# Specify which kubernetes namespace the ingress controller will watch
+# Default value is "default"
+#
+# kubernetes:
+#   watchNamespace: <namespace>
+
+################################################################################
+# Specify the authentication with Azure Resource Manager
+#
+# Two authentication methods are available:
+# - Option 1: AAD-Pod-Identity (https://github.com/Azure/aad-pod-identity)
+armAuth:
+    type: aadPodIdentity
+    identityResourceID: /subscriptions/03228871-7f68-4594-b208-2d8207a65428/resourcegroups/attk8demo-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/appgwContrIdentityf009
+    identityClientID:  6b265de3-000c-4617-be65-d4f4a5f83094
+
+################################################################################
+# Specify if the cluster is RBAC enabled or not
+rbac:
+    enabled: true
+
+################################################################################
+# Specify aks cluster related information
+aksClusterConfiguration:
+    apiServerAddress: aks-d610a9a3.hcp.eastus.azmk8s.io
